@@ -8,11 +8,11 @@ dependencies:
     - "~/.cache/composer"
   pre:
     - echo "date.timezone = Europe/London" >> /opt/circleci/php/$(phpenv global)/etc/php.ini
+    - cp app/config/parameters.yml.circle app/config/parameters.yml
 
 test:
   pre:
     - mkdir -p $CIRCLE_TEST_REPORTS/phpunit
-    - cp app/config/parameters.yml.circle app/config/parameters.yml
 
 database:
   override:
