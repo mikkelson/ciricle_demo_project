@@ -103,6 +103,7 @@ function echo_style($style, $message)
         'red' => "\033[31m",
         'green' => "\033[32m",
         'yellow' => "\033[33m",
+        'orange'  => "\033[34m",
         'error' => "\033[37;41m",
         'success' => "\033[37;42m",
         'title' => "\033[34m",
