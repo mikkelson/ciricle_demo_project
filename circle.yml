@@ -12,5 +12,11 @@ dependencies:
 test:
   pre:
     - mkdir -p $CIRCLE_TEST_REPORTS/phpunit
+    - cp app/config/parameters.yml.circle app/config/parameters.yml
+
+database:
+  override:
+    - mysql -u ubuntu -e "CREATE DATABASE testdb;"
+    - app/console doctrine:schema:create --env=test
   override:
     - bin/phpunit -c app/phpunit.xml.dist --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml -d memory_limit=512M
